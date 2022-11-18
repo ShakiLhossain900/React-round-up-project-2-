@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import AllMeetupPage from "./pages/AllMeetup";
 import FavoritesPage from "./pages/Favorites";
@@ -8,15 +8,17 @@ import NewMeetupPage from "./pages/NewMeetup";
 const App = () => {
   return (
     <React.Fragment>
-      <Route path="/">
-        <AllMeetupPage />
-      </Route>
-      <Route path="/new-meetup">
-        <NewMeetupPage />
-      </Route>
-      <Route path="/favorites">
-        <FavoritesPage />
-      </Route>
+      <Switch>
+        <Route path="/" exact >
+          <AllMeetupPage />
+        </Route>
+        <Route path="/new-meetup" exact >
+          <NewMeetupPage />
+        </Route>
+        <Route path="/favorites" exact >
+          <FavoritesPage />
+        </Route>
+      </Switch>
     </React.Fragment>
   );
 };
