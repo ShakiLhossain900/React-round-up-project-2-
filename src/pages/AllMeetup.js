@@ -22,7 +22,14 @@ const DUMMY_DATA = [
 ];
 
 const AllMeetupPage = () => {
-  return <div></div>;
+  return <section>
+      <h1>All Meetup</h1>
+      <ul>
+      {DUMMY_DATA.map((meetup) =>{
+        return <li key={meetup.id}>{meetup.title}</li> 
+      })}
+      </ul>
+  </section>;
 };
 
 export default AllMeetupPage;
