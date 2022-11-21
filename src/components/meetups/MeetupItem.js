@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './MeetupItem.module.css';
 
 const MeetupItem = (props) => {
     return (
