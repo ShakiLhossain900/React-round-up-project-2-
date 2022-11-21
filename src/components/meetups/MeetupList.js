@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MeetupList = () => {
+const MeetupList = (props) => {
     return (
         <div>
             
