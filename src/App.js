@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import MainNavigation from "./components/layout/MainNavigation";
+import Layout from "./components/layout/Layout";
 
 import AllMeetupPage from "./pages/AllMeetup";
 import FavoritesPage from "./pages/Favorites";
@@ -8,20 +8,19 @@ import NewMeetupPage from "./pages/NewMeetup";
 
 const App = () => {
   return (
-    <React.Fragment>
-        <MainNavigation/>
+    <Layout>
       <Switch>
-        <Route path="/" exact >
+        <Route path="/" exact>
           <AllMeetupPage />
         </Route>
-        <Route path="/new-meetup" exact >
+        <Route path="/new-meetup" exact>
           <NewMeetupPage />
         </Route>
-        <Route path="/favorites" exact >
+        <Route path="/favorites" exact>
           <FavoritesPage />
         </Route>
       </Switch>
-    </React.Fragment>
+    </Layout>
   );
 };
 
