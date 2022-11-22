@@ -3,6 +3,9 @@ import Card from "../ui/Card";
 import classes from "./NewMeetupForm.module.css";
 
 const NewMeetupForm = () => {
+    const submitHandler =(event) => {
+        event.preventDefault();
+    }
   return (
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
