@@ -25,5 +25,3 @@ const App = () => {
 };
 
 export default App;
-
-// next time adding a from 023 for next
