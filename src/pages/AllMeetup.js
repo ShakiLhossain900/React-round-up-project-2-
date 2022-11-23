@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 
 const DUMMY_DATA = [
@@ -32,6 +32,7 @@ const DUMMY_DATA = [
 ];
 
 const AllMeetupPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
   fetch(
     "https://react-roundup-project2-default-rtdb.firebaseio.com/meetups.json"
   )
@@ -39,8 +40,13 @@ const AllMeetupPage = () => {
       response.json();
     })
     .then((data) => {
-       
+      setIsLoading(false);
     });
+  if (isLoading) {
+    return <section>
+      <p>Loading...</p>
+    </section>;
+  }
 
   return (
     <section>
