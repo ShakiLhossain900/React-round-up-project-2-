@@ -32,16 +32,22 @@ const DUMMY_DATA = [
 ];
 
 const AllMeetupPage = () => {
+  fetch(
+    "https://react-roundup-project2-default-rtdb.firebaseio.com/meetups.json"
+  )
+    .then((response) => {
+      response.json();
+    })
+    .then((data) => {
+       
+    });
 
-  fetch('https://react-roundup-project2-default-rtdb.firebaseio.com/meetups.json'
-  ).then((response) => {
-    response.json();
-  });
-
-  return <section>
+  return (
+    <section>
       <h1>All Meetup</h1>
-     <MeetupList meetups={DUMMY_DATA}/>
-  </section>;
+      <MeetupList meetups={DUMMY_DATA} />
+    </section>
+  );
 };
 
 export default AllMeetupPage;
