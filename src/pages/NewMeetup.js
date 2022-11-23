@@ -1,7 +1,10 @@
+import {useHistory} from 'react-router-dom';
 import React from "react";
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
 
 const NewMeetupPage = () => {
+const history = useHistory();
+
   const addMeetupHandler = (meetupData) => {
     //sending http request to the firebase
 
@@ -14,7 +17,9 @@ const NewMeetupPage = () => {
           'Content-Type': 'application/json'
         }
       }
-    );
+    ).then(()=>{
+      history.replace('/')
+    })
   };
 
   return (
