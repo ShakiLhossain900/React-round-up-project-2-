@@ -36,17 +36,19 @@ const AllMeetupPage = () => {
   const [loadedMeetups, setLoadedMeetups] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(
       "https://react-roundup-project2-default-rtdb.firebaseio.com/meetups.json"
     )
       .then((response) => {
-        response.json();
+      return  response.json();
       })
       .then((data) => {
         setIsLoading(false);
         setLoadedMeetups(data);
       });
   }, []);
+
 
   if (isLoading) {
     return (
