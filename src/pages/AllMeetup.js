@@ -33,6 +33,7 @@ const DUMMY_DATA = [
 
 const AllMeetupPage = () => {
   const [isLoading, setIsLoading] = useState(true);
+const [loadedMeetups, setLoadedMeetups] = useState([]);
   fetch(
     "https://react-roundup-project2-default-rtdb.firebaseio.com/meetups.json"
   )
@@ -41,6 +42,7 @@ const AllMeetupPage = () => {
     })
     .then((data) => {
       setIsLoading(false);
+      setLoadedMeetups(data);
     });
   if (isLoading) {
     return <section>
@@ -51,7 +53,7 @@ const AllMeetupPage = () => {
   return (
     <section>
       <h1>All Meetup</h1>
-      <MeetupList meetups={DUMMY_DATA} />
+      <MeetupList meetups={loadedMeetups} />
     </section>
   );
 };
