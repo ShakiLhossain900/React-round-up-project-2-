@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import MeetupList from "../components/meetups/MeetupList";
+import classes from "./AllMeetup.module.css";
 
 const DUMMY_DATA = [
   {
@@ -41,26 +42,23 @@ const AllMeetupPage = () => {
       "https://react-roundup-project2-default-rtdb.firebaseio.com/meetups.json"
     )
       .then((response) => {
-      return  response.json();
+        return response.json();
       })
       .then((data) => {
+        const meetups = [];
 
-        const meetups =[];
-         
-        for (const key in data ){
-          const meetup={
-            id:key,
-            ...data[key]
-          }
-          meetups.push(meetup)
+        for (const key in data) {
+          const meetup = {
+            id: key,
+            ...data[key],
+          };
+          meetups.push(meetup);
         }
-          
 
         setIsLoading(false);
-        setLoadedMeetups( meetups);
+        setLoadedMeetups(meetups);
       });
   }, []);
-
 
   if (isLoading) {
     return (
