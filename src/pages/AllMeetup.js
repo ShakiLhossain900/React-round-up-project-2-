@@ -33,7 +33,11 @@ const DUMMY_DATA = [
 
 const AllMeetupPage = () => {
 
-  fetch('https://react-roundup-project2-default-rtdb.firebaseio.com/meetups.json')
+  fetch('https://react-roundup-project2-default-rtdb.firebaseio.com/meetups.json'
+  ).then((response) => {
+    response.json();
+  });
+
   return <section>
       <h1>All Meetup</h1>
      <MeetupList meetups={DUMMY_DATA}/>
