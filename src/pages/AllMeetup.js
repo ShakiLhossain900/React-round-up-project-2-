@@ -82,4 +82,4 @@ export default AllMeetupPage;
 
 
 //030  react context need to work for that 
-//context and different way to upsating
+//context and different way to upsating state
