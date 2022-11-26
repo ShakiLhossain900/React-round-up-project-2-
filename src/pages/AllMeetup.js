@@ -79,6 +79,5 @@ export default AllMeetupPage;
 
 //030  react context need to work for that
 //context and different way to upsating state
-//after this project i  will start the food ordering app
-//than a to z review than go for the nodejs
-// within 15 days node js need to complete    
+
+
