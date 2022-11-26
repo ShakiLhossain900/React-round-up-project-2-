@@ -9,6 +9,13 @@ function FavoritesContextProvider(props) {
 
     const [userFavorites, setUserFavorites] = useState([]);
 
+    function addFavorateHandler (){}
+
+    function removeFavorateHandler (){}
+    
+    function itemIsFavoriteHandler () {}
+
+
     const context= {
         favorites:userFavorites,
          totalFavorites:userFavorites.length,
