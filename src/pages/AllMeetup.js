@@ -40,44 +40,40 @@ const AllMeetupPage = () => {
     fetch(
       "https://react-roundup-project2-default-rtdb.firebaseio.com/meetups.json"
     )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const meetups = [];
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const meetups = [];
 
-        for (const key in data) {
-          const meetup = {
-            id: key,
-            ...data[key],
-          };
-          meetups.push(meetup);
-        }
+      for (const key in data) {
+        const meetup = {
+          id: key,
+          ...data[key]
+        };
 
-        setIsLoading(false);
-        setLoadedMeetups(meetups);
-      });
-  }, []);
+        meetups.push(meetup);
+      }
 
-  if (isLoading) {
-    return (
-      <section>
-        <p>Loading...</p>
-      </section>
-    );
-  }
+      setIsLoading(false);
+      setLoadedMeetups(meetups);
+    });
+}, []);
 
+if (isLoading) {
   return (
     <section>
-      <h1>All Meetup</h1>
-      <MeetupList meetups={loadedMeetups} />
+      <p>Loading...</p>
     </section>
   );
-};
+}
+
+return (
+  <section>
+    <h1>All Meetups</h1>
+    <MeetupList meetups={loadedMeetups} />
+  </section>
+);
+}
 
 export default AllMeetupPage;
-
-//030  react context need to work for that
-//context and different way to upsating state
-
-

@@ -25,3 +25,5 @@ const App = () => {
 };
 
 export default App;
+
+//there is error if i click one of the button all button has clicked 
