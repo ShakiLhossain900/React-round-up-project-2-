@@ -14,24 +14,28 @@ function FavoritesContextProvider(props) {
         // setUserFavorites(userFavorites.concat(favoriteMeetup))
         //uper one use na kore amara  jodi function use kori letest one amra pabu
        setUserFavorites((prevUserFavorites)=>{
-        return prevUserFavorites.concat(favoriteMeetup);
+        return prevUserFavorites.concat(favoriteMeetup);  //The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
        })
     }
 
 
 
-    function removeFavorateHandler (){}
+    function removeFavorateHandler (meetupId){
+     setUserFavorites(prevUserFavorites=>{
+        return prevUserFavorites.filter(meetup=>meetup.id !== meetupId);
+    });
+    }
     
-    function itemIsFavoriteHandler () {}
+    function itemIsFavoriteHandler (meetupId) {
+        return userFavorites.some(meetup=>meetup.id === meetupId);
+    }
 
 
     const context= {
         favorites:userFavorites,
          totalFavorites:userFavorites.length,
+         addFavorite: addFavorateHandler,
     }
-
-
-
 
 
     return (
