@@ -1,8 +1,12 @@
-import React from "react";
+import {useContext} from "react";
 import { Link } from "react-router-dom";
+
 import classes from './MainNavigation.module.css';
+import FavoritesContext from "../../store/favorites-context";
 
 const MainNavigation = () => {
+ const favoritesCtx = useContext(FavoritesContext);
+
   return (
     <header className={classes.header}>
       <div className={classes.logo}>React Meetup</div>
